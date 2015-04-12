@@ -1,0 +1,68 @@
+cfrouter:
+  image: codefresh/cf-router:develop
+  ports:
+    - "9000"
+  environment:
+    NODE_ENV: development-codefresh
+    TAG: develop
+  links:
+    - cfui:cf-ui.codefresh.io
+    - cfapi:cf-api.codefresh.io
+    - cfruntime:cf-runtime.codefresh.io
+
+cfui:
+  build: .
+  # ports:
+  #   - "8001:80"
+  #   - "8011:5858"
+  #   - "9011:8080"
+  environment:
+    NODE_ENV: development-docker
+    TAG: develop
+    # FORCE_NODE: true
+    # DEBUG: true
+    # NODE_INSPECTOR: true
+
+cfapi:
+  image: codefresh/cf-api:develop
+  # ports:
+  #   - "8002:80"
+  #   - "8012:5858"
+  #   - "9012:8080"
+  environment:
+    NODE_ENV: development-docker
+    TAG: develop
+    CF_MODULE: cf-api
+    # FORCE_NODE: true
+    # NODE_INSPECTOR: true
+    # DEBUG: true
+
+cfruntime:
+  image: codefresh/cf-runtime:develop
+  # ports:
+  #   - "8003:80"
+  #   - "8013:5858"
+  #   - "9013:8080"
+  volumes:
+    - /var/run/docker.sock:/var/run/docker.sock
+  environment:
+    NODE_ENV: development-docker
+    TAG: develop
+    CF_MODULE: cf-runtime
+    # FORCE_NODE: true
+    # NODE_INSPECTOR: true
+    # DEBUG: true
+
+cfbase:
+  image: codefresh/cf-base:develop
+  environment:
+    NODE_ENV: development-docker
+    TAG: develop
+
+cfbaseide:
+  image: codefresh/cf-base-ide:develop
+  environment:
+    NODE_ENV: development-docker
+    TAG: develop
+
+
