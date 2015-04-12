@@ -16,10 +16,6 @@
   padding: 60px 10px;
   background-color: #3f4e62; }
 
-.page-tree {
-  height: 100%;
-  padding: 0; }
-
 .page-chat #inbox {
   margin: 20px -15px -15px; }
   .page-chat #inbox > li {
@@ -75,11 +71,15 @@
   background-color: rgba(255, 255, 255, 0.5);
   padding-right: 20px; }
 
+.pages {
+  h: %;
+  p: 0; }
+
 ul.chats {
   list-style: none; }
   ul.chats > li {
     margin: 20px auto;
-    font-size: 12px; }
+    font-size: 18px; }
     ul.chats > li:last-child {
       margin-bottom: 0; }
     ul.chats > li .media {
